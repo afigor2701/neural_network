@@ -1,6 +1,6 @@
 #include "activation_function.h"
 
-namespace NeuralNetwork {
+namespace NNeuralNetwork {
 
 virtual double TActivationFunction::Evaluate(double x) const {
     return function_->Evaluate(x);
@@ -16,4 +16,4 @@ virtual MatrixXd TActivationFunction::DerivativeMatrix(const VectorXd& x) const 
     return function_->DerivativeMatrix(x);
 }
 
-}  // namespace NeuralNetwork
+}  // namespace NNeuralNetwork

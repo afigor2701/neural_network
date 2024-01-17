@@ -3,7 +3,7 @@
 #include "../include_eigen.h"
 #include <memory>
 
-namespace NeuralNetwork {
+namespace NNeuralNetwork {
 
 class TActivationFunction {
 public:
@@ -53,4 +53,4 @@ private:
     std::unique_ptr<TBaseConcept> function_;
 };
 
-}  // namespace NeuralNetwork
+}  // namespace NNeuralNetwork

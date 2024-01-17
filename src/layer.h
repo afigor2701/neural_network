@@ -2,7 +2,7 @@
 
 #include "include_eigen.h"
 
-namespace NeuralNetwork {
+namespace NNeuralNetwork {
 
 class TLayer {
 public:
@@ -23,4 +23,4 @@ private:
 };
 
 
-}  // namespace NeuralNetwork
+}  // namespace NNeuralNetwork

@@ -1,7 +1,7 @@
 #include "layer.h"
 
-namespace NeuralNetwork {
+namespace NNeuralNetwork {
 
 
 
-}  // namespace NeuralNetwork
+}  // namespace NNeuralNetwork

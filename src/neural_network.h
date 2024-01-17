@@ -8,7 +8,7 @@
 #include <tuple>
 #include <vector>
 
-namespace NeuralNetwork {
+namespace NNeuralNetwork {
 
 template <typename TLossFunciton>
 class TNeuralNetwork {
@@ -37,4 +37,4 @@ TNeuralNetwork<TLossFunciton>::TNeuralNetwork(const std::initializer_list<std::p
     }
 }
 
-}  // namespace NeuralNetwork
+}  // namespace NNeuralNetwork
