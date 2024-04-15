@@ -8,5 +8,6 @@ namespace NNeuralNetwork {
 // в матрице, поэтому возможно лучше расположить вектора по колонками в памяти.
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
+using Eigen::Index;
 
 }  // namespace NNeuralNetwork

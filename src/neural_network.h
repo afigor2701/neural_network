@@ -1,40 +1,36 @@
 #pragma once
 
-#include "../include_eigen.h"
-#include "activation_function/activation_function.h"
-#include "layer.h"
 
-#include <initializer_list>
-#include <tuple>
+#include "include_eigen.h"
+#include "loss_functions/loss_function.h"
+
 #include <vector>
 
 namespace NNeuralNetwork {
 
-template <typename TLossFunciton>
+class TNeuralNetworkBuilder;
+class TLayer;
+class TTrainingLayer;
+
 class TNeuralNetwork {
 public:
-    TNeuralNetwork(const std::initializer_list<std::pair<size_t, TActivationFunction>>& layers,
-                   TLossFunction loss_funciton);
+    void Train(const MatrixXd& x, const MatrixXd& y, Index batch_size, TLossFunction loss_function, double target_loss,
+               Index max_epoch, double learning_rate);
 
-    void Train(const MatrixXd& x, const MatrixXd& results);
-
-    MatrixXd Predict(const MatrixXd& x) const;
+    MatrixXd Predict(MatrixXd x) const;
 
     void ResetWeights();
 
 private:
-    std::vector<TLayer> layers_;
-    TLossFunction loss_funciton_;
-};
+    // TNeuralNetworkBuilder
+    TNeuralNetwork(std::vector<TLayer> layers);
+    friend class TNeuralNetworkBuilder;
 
-template <typename TLossFunciton>
-TNeuralNetwork<TLossFunciton>::TNeuralNetwork(const std::initializer_list<std::pair<size_t, TActivationFunction>>& layers,
-                                              TLossFunction loss_funciton)
-                                              : loss_funciton_(std::move(loss_funciton)) {
-    layers_.reserve(layers.size());
-    for (size_t layer : layers) {
-        layers_.emplace_back(layer.first, layer.second);
-    }
-}
+    double Epoch(const MatrixXd& x, const MatrixXd& y, std::vector<TTrainingLayer>& training_layers, Index batch_size,
+                 TLossFunction loss_function);
+
+private:
+    std::vector<TLayer> layers_;
+};
 
 }  // namespace NNeuralNetwork

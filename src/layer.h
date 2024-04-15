@@ -1,25 +1,20 @@
 #pragma once
 
+#include "activation_functions/activation_function.h"
 #include "include_eigen.h"
 
 namespace NNeuralNetwork {
 
 class TLayer {
 public:
-    TLayer(size_t size, TActivationFunction function);
+    TLayer(Index in_size, Index out_size, TActivationFunction function);
 
-    MatrixXd Evaluate(const MatrixXd& x) const;
-    VectorXd Derivative(const VectorXd& x, const VectorXd& u) const;
-
-    void AccumulateChangeWeights(const VectorXd& x, const VectorXd& u);
-    void ApplyChanges();
+    MatrixXd Evaluate(MatrixXd x) const;
 
 private:
-    VectorXd A_;
+    MatrixXd A_;
     VectorXd b_;
     TActivationFunction function_;
-    VectorXd gradient_for_A_;
-    VectorXd gradient_for_b_;
 };
 
 

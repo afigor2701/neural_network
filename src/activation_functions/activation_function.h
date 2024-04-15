@@ -1,11 +1,35 @@
 #pragma once
 
 #include "../include_eigen.h"
-#include <memory>
 
 namespace NNeuralNetwork {
 
 class TActivationFunction {
+public:
+    using Signature = double(double);
+    using FunctionPtr = Signature*;
+
+    template <typename TFunction>
+    TActivationFunction(TFunction) : evaluate_(TFunction::Evaluate), derivative_(TFunction::Derivative) {
+    }
+
+    TActivationFunction(FunctionPtr evaluate, FunctionPtr derivative);
+
+    double Evaluate(double x) const;
+    double Derivative(double x) const;
+
+    // Скорее всего надо принимать Eigen::MatrixBase, чтобы избежать копирований, т.к. буду делать слайся матрицы
+    VectorXd Evaluate(const VectorXd& x) const;
+    MatrixXd DerivativeMatrix(const VectorXd& x) const;
+
+private:
+    FunctionPtr evaluate_;
+    FunctionPtr derivative_;
+};
+
+}  // namepsace NNeuralNetwork
+
+/*class TActivationFunction {
 public:
     template <typename TFunction>
     TActivationFunction(const TFunction& function) : function_ptr_(std::make_unique<TConcept<Function>>(function)) {
@@ -53,4 +77,4 @@ private:
     std::unique_ptr<TBaseConcept> function_;
 };
 
-}  // namespace NNeuralNetwork
+}  // namespace NNeuralNetwork*/
