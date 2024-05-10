@@ -19,8 +19,6 @@ public:
 
     MatrixXd Predict(MatrixXd x) const;
 
-    void ResetWeights();
-
 private:
     // TNeuralNetworkBuilder
     TNeuralNetwork(std::vector<TLayer> layers);

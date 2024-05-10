@@ -64,11 +64,6 @@ MatrixXd TNeuralNetwork::Predict(MatrixXd x) const {
     return x;
 }
 
-// TODO
-void TNeuralNetwork::ResetWeights() {
-    throw std::runtime_error("Not Implemented");
-}
-
 TNeuralNetwork::TNeuralNetwork(std::vector<TLayer> layers) : layers_(std::move(layers)) {
 }
 
@@ -111,11 +106,9 @@ double TNeuralNetwork::Epoch(const MatrixXd& x, const MatrixXd& y, Index batch_s
 }
 
 void TNeuralNetwork::Propagation(MatrixXd gradient) {
-    //std::cout << "Propagation started" << std::endl;
     for (auto layer_it = GetTrainingLayers().rbegin(); layer_it != GetTrainingLayers().rend(); ++layer_it) {
         gradient = layer_it->PropagationAndCoeffUpdate(std::move(gradient));
     }
-    //std::cout << "Propagation ended" << std::endl;
 }
 
 
