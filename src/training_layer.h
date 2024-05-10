@@ -1,25 +1,21 @@
 #pragma once
 
 #include "include_eigen.h"
+#include "layer.h"
 
 namespace NNeuralNetwork {
 
-class TLayer;
-
-class TTrainingLayer {
+class TTrainingLayer : public TLayer {
 public:
-    explicit TTrainingLayer(TLayer* layer_ptr, double learning_rate);
+    TTrainingLayer(TLayer layer_ptr, double learning_rate);
 
     MatrixXd Evaluate(MatrixXd x);
 
-    MatrixXd PropagationAndCoeffUpdate(MatrixXd gradient);
+    MatrixXd PropagationAndCoeffUpdate(MatrixXd gradients);
 
 private:
-    TLayer* layer_ptr_;
-    //MatrixXd gradient_for_A_;
-    //VectorXd gradient_for_b_;
     MatrixXd last_in_;
-    MatrixXd last_out_;
+    MatrixXd last_in_after_linear_;
     double learning_rate_;
 };
 

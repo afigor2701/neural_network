@@ -19,7 +19,7 @@ public:
 
     TNeuralNetworkBuilder& AddLayer(Index size, TActivationFunction function);
 
-    TNeuralNetwork Finish() &&;
+    TNeuralNetwork Finish();
 
 private:
     std::vector<Index> layers_sizes_;

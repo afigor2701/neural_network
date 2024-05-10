@@ -11,7 +11,7 @@ public:
 
     MatrixXd Evaluate(MatrixXd x) const;
 
-private:
+protected:
     MatrixXd A_;
     VectorXd b_;
     TActivationFunction function_;

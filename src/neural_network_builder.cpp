@@ -14,7 +14,7 @@ TNeuralNetworkBuilder& TNeuralNetworkBuilder::AddLayer(Index size, TActivationFu
     return *this;
 }
 
-TNeuralNetwork TNeuralNetworkBuilder::Finish() && {
+TNeuralNetwork TNeuralNetworkBuilder::Finish() {
     std::vector<TLayer> layers;
 
     for (Index i = 0; i < activation_functions.size(); ++i) {

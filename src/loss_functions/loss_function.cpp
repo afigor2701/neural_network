@@ -1,6 +1,7 @@
 #include "loss_function.h"
 
 #include <cassert>
+#include <iostream>
 
 namespace NNeuralNetwork {
 

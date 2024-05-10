@@ -12,18 +12,19 @@ double TActivationFunction::Derivative(double x) const {
     return derivative_(x);
 }
 
-VectorXd TActivationFunction::Evaluate(const VectorXd& x) const {
-    VectorXd result(x.size());
-    for (Index i = 0; i < x.size(); ++i) {
-        result(i) = evaluate_(x(i));
+MatrixXd TActivationFunction::Evaluate(MatrixXd x) const {
+    for (Index i = 0; i < x.rows(); ++i) {
+        for (Index j = 0; j < x.cols(); ++j) {
+            x(i, j) = evaluate_(x(i, j));
+        }
     }
-    return result;
+    return x;
 }
 
-MatrixXd TActivationFunction::DerivativeMatrix(const VectorXd& x) const {
-    MatrixXd result = MatrixXd::Zero(x.size(), x.size());
+VectorXd TActivationFunction::DerivativeMatrix(const VectorXd& x) const {
+    VectorXd result = VectorXd::Zero(x.size());
     for (Index i = 0; i < x.size(); ++i) {
-        result(i, i) = derivative_(x(i));
+        result(i) = derivative_(x(i));
     }
     return result;
 }

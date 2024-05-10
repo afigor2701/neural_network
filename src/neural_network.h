@@ -1,16 +1,16 @@
 #pragma once
 
-
 #include "include_eigen.h"
 #include "loss_functions/loss_function.h"
 
+#include "training_layer.h"
+
+#include <variant>
 #include <vector>
 
 namespace NNeuralNetwork {
 
 class TNeuralNetworkBuilder;
-class TLayer;
-class TTrainingLayer;
 
 class TNeuralNetwork {
 public:
@@ -26,11 +26,18 @@ private:
     TNeuralNetwork(std::vector<TLayer> layers);
     friend class TNeuralNetworkBuilder;
 
-    double Epoch(const MatrixXd& x, const MatrixXd& y, std::vector<TTrainingLayer>& training_layers, Index batch_size,
-                 TLossFunction loss_function);
+    std::vector<TLayer>& GetLayers();
+    const std::vector<TLayer>& GetLayers() const;
+    std::vector<TTrainingLayer>& GetTrainingLayers();
+
+    MatrixXd TrainingPredict(MatrixXd x);
+
+    double Epoch(const MatrixXd& x, const MatrixXd& y, Index batch_size, TLossFunction loss_function);
+    
+    void Propagation(MatrixXd gradient);
 
 private:
-    std::vector<TLayer> layers_;
+    std::variant<std::vector<TLayer>, std::vector<TTrainingLayer>> layers_;
 };
 
 }  // namespace NNeuralNetwork
