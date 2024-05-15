@@ -11,8 +11,8 @@ TTrainingLayer::TTrainingLayer(TLayer layer, double learning_rate) : TLayer(std:
 }
 
 MatrixXd TTrainingLayer::Evaluate(MatrixXd x) {
-    last_in_ = x;
-    last_in_after_linear_ = (A_ * x).colwise() + b_;
+    last_in_ = std::move(x);
+    last_in_after_linear_ = (A_ * last_in_).colwise() + b_;
     return function_.Evaluate(last_in_after_linear_);
 }
 

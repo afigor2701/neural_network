@@ -10,7 +10,8 @@ double Sigmoid::Evaluate(double x) {
 
 double Sigmoid::Derivative(double x) {
     double tmp = exp(-x);
-    return tmp / ((1 + tmp) * (1 + tmp));
+    return 1.0 / (1.0 / tmp + 2.0 + tmp);
+    //return tmp / ((1 + tmp) * (1 + tmp));
 }
 
 }  // namespace NNeuralNetwork
