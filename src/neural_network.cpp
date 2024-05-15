@@ -32,7 +32,7 @@ std::vector<TLayer> MakeLayers(std::vector<TTrainingLayer>& training_layers) {
 }
 
 inline auto GetBatch(const MatrixXd& x, Index start, Index batch_size) {
-    return x(Eigen::indexing::all, Eigen::indexing::seq(start, std::min(x.cols() - 1, start + batch_size - 1)));
+    return x(all, seq(start, std::min(x.cols() - 1, start + batch_size - 1)));
 }
 
 }  // namespace

@@ -9,5 +9,7 @@ namespace NNeuralNetwork {
 using Eigen::MatrixXd;
 using Eigen::VectorXd;
 using Eigen::Index;
+using Eigen::indexing::all;
+using Eigen::indexing::seq;
 
 }  // namespace NNeuralNetwork

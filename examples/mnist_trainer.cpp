@@ -11,6 +11,8 @@
 
 using namespace NNeuralNetwork;
 
+namespace {
+
 struct DataSet {
     MatrixXd training_data;
     MatrixXd training_ans;
@@ -19,6 +21,8 @@ struct DataSet {
     Index in_size;
     Index out_size;
 };
+
+}  // namespace
 
 MatrixXd ConvertImagesToMatrixXd(const auto& images) {
     MatrixXd result = MatrixXd::Zero(images[0].size(), images.size());
