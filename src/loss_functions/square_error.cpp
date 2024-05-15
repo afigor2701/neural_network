@@ -7,7 +7,7 @@ double SquareError::Evaluate(double x, double y) {
 }
 
 double SquareError::DerivativeWithRespectForX(double x, double y) {
-    return 2.0L * (x - y);
+    return 2.0 * (x - y);
 }
 
 }  // namespace NNeuralNetwork

@@ -5,7 +5,7 @@
 namespace NNeuralNetwork {
 
 double Sigmoid::Evaluate(double x) {
-    return 1.0L / (1.0L + exp(-x));
+    return 1.0 / (1.0 + exp(-x));
 }
 
 double Sigmoid::Derivative(double x) {
