@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../third_party/eigen/Eigen/Eigen"
+#include "third_party/eigen/Eigen/Eigen"
 
 namespace NNeuralNetwork {
 

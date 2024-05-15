@@ -1,5 +1,5 @@
 #include "../include_eigen.h"
-#include "../../third_party/EigenRand/EigenRand/EigenRand"
+#include "third_party/EigenRand/EigenRand/EigenRand"
 
 namespace NNeuralNetwork::utils {
 

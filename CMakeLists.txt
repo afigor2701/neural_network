@@ -6,7 +6,7 @@ set(CMAKE_BUILD_TYPE Release)
 
 project(Neural_Network)
 
-include_directories(third_party/mnist/include)
+include_directories(.) # to enable third_party/..
 
 add_subdirectory(src)
 

@@ -2,7 +2,7 @@
 #include "neural_network_builder.h"
 #include "neural_network.h"
 
-#include "mnist/mnist_reader.hpp"
+#include "third_party/mnist/include/mnist/mnist_reader.hpp"
 
 #include "activation_functions/sigmoid.h"
 #include "activation_functions/ReLu.h"
