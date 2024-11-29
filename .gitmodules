@@ -1,0 +1,9 @@
+[submodule "third_party/EigenRand"]
+	path = third_party/EigenRand
+	url = git@github.com:bab2min/EigenRand.git
+[submodule "third_party/eigen"]
+	path = third_party/eigen
+	url = git@gitlab.com:libeigen/eigen.git
+[submodule "third_party/mnist"]
+	path = third_party/mnist
+	url = https://github.com/wichtounet/mnist.git
